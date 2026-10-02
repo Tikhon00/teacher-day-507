@@ -1,0 +1,2023 @@
+:root {
+  --paper:#faf4df;
+  --paper-light:#fffdf4;
+  --ink:#60233b;
+  --ink-soft:#795261;
+  --line:#60233b26;
+  --yellow:#f1d779;
+  --lilac:#d6cee8;
+  --sage:#dbe3ca;
+  --display:"Cormorant Garamond",Georgia,serif;
+  --body:"Golos Text",Arial,sans-serif;
+  --hand:"Caveat",cursive;
+  --space:clamp(1.25rem,4vw,4rem)
+}
+
+* {
+  box-sizing:border-box
+}
+
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:2rem
+}
+
+body {
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:400 16px/1.65 var(--body);
+  overflow-x:clip
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:10;
+  pointer-events:none;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23000' filter='url(%23n)' opacity='.7' d='M0 0h180v180H0z'/%3E%3C/svg%3E")
+}
+
+a {
+  color:inherit;
+  text-decoration:none
+}
+
+button {
+  font:inherit;
+  color:inherit;
+  cursor:pointer
+}
+
+button,a {
+  -webkit-tap-highlight-color:transparent
+}
+
+button:focus-visible,a:focus-visible {
+  outline:3px solid var(--ink);
+  outline-offset:6px
+}
+
+img {
+  display:block;
+  width:100%;
+  height:auto
+}
+
+h1,h2,h3,p,figure {
+  margin:0
+}
+
+::selection {
+  background:var(--lilac);
+  color:var(--ink)
+}
+
+.wrap {
+  width:min(1280px,calc(100% - var(--space)*2));
+  margin-inline:auto
+}
+
+.skip-link {
+  position:absolute;
+  top:-100px;
+  left:1rem;
+  background:var(--ink);
+  color:var(--paper-light);
+  padding:.6rem 1rem;
+  z-index:30
+}
+
+.skip-link:focus {
+  top:1rem
+}
+
+.reading-progress {
+  position:fixed;
+  left:0;
+  top:0;
+  width:0;
+  height:3px;
+  background:var(--ink);
+  z-index:20
+}
+
+.masthead {
+  height:104px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  gap:1rem
+}
+
+.school-mark {
+  display:flex;
+  align-items:center;
+  gap:14px
+}
+
+.school-number {
+  font:700 38px/1 var(--display);
+  letter-spacing:-2px;
+  position:relative
+}
+
+.mark-star {
+  font:22px var(--body);
+  position:absolute;
+  top:-12px;
+  right:-9px
+}
+
+.school-caption {
+  font-size:10px;
+  line-height:1.55;
+  letter-spacing:1.2px;
+  padding-left:13px;
+  border-left:1px solid var(--line)
+}
+
+.masthead nav {
+  display:flex;
+  gap:2.25rem;
+  font-size:13px
+}
+
+.masthead nav a {
+  border-bottom:1px solid transparent;
+  transition:border-color .2s
+}
+
+.masthead nav a:hover {
+  border-color:var(--ink)
+}
+
+.header-note {
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  gap:5px
+}
+
+.tiny-heart {
+  font-size:26px;
+  margin-left:8px
+}
+
+.hero {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  min-height:710px;
+  padding-top:65px;
+  padding-bottom:92px;
+  gap:1.5rem;
+  align-items:center
+}
+
+.eyebrow {
+  font-size:11px;
+  letter-spacing:1.6px;
+  display:flex;
+  align-items:center;
+  gap:9px
+}
+
+.date-dot {
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--ink)
+}
+
+h1 {
+  font:600 clamp(70px,7.5vw,112px)/.89 var(--display);
+  letter-spacing:-4px;
+  margin-top:30px;
+  position:relative;
+  width:max-content;
+  max-width:100%
+}
+
+h1 em {
+  font-weight:600
+}
+
+.title-star {
+  font:60px/1 var(--display);
+  position:absolute;
+  top:0;
+  right:-61px;
+  transform:rotate(12deg)
+}
+
+.hero-handwritten {
+  font:600 clamp(27px,3vw,39px)/1.1 var(--hand);
+  transform:rotate(-5deg);
+  margin:21px 0 27px 4px;
+  width:max-content;
+  max-width:100%
+}
+
+.hero-description {
+  font-size:15px;
+  line-height:1.7;
+  color:var(--ink-soft)
+}
+
+.primary-button {
+  background:var(--ink);
+  color:var(--paper-light);
+  padding:16px 24px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:22px;
+  font-size:13px;
+  border:1px solid var(--ink);
+  margin-top:28px;
+  border-radius:4px;
+  transition:background .2s,transform .2s
+}
+
+.primary-button span {
+  font-size:22px;
+  line-height:1
+}
+
+.primary-button:hover {
+  background:#7b314b;
+  transform:translateY(-2px)
+}
+
+.hero-footnote {
+  font-size:11px;
+  line-height:1.65;
+  color:var(--ink-soft);
+  margin-top:19px
+}
+
+.hero-collage {
+  position:relative;
+  height:515px;
+  isolation:isolate;
+  margin-left:20px
+}
+
+.collage-grid {
+  position:absolute;
+  inset:45px -15px 38px -15px;
+  background-image:linear-gradient(#60233b0e 1px,transparent 1px),linear-gradient(90deg,#60233b0e 1px,transparent 1px);
+  background-size:22px 22px;
+  mask-image:radial-gradient(ellipse at center,black 40%,transparent 74%);
+  transform:rotate(-6deg);
+  z-index:-1
+}
+
+.polaroid {
+  position:absolute;
+  padding:12px 12px 8px;
+  background:var(--paper-light);
+  box-shadow:0 9px 26px #47221d1b,0 1px 3px #47221d13;
+  width:246px;
+  transition:transform .5s
+}
+
+.polaroid::before {
+  content:"";
+  position:absolute;
+  top:-13px;
+  left:calc(50% - 43px);
+  width:86px;
+  height:29px;
+  background:#dfc28a96;
+  transform:rotate(-5deg);
+  z-index:2;
+  clip-path:polygon(2% 0,98% 3%,100% 91%,0 100%)
+}
+
+.photo-window {
+  overflow:hidden;
+  aspect-ratio:3/4;
+  background:var(--yellow)
+}
+
+.photo-window img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 40%;
+  filter:saturate(.85)
+}
+
+.polaroid figcaption {
+  font:600 23px/1.25 var(--hand);
+  padding:12px 2px 2px;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:3px
+}
+
+.polaroid figcaption span {
+  font-size:28px
+}
+
+.polaroid-nadezhda {
+  left:2px;
+  top:43px;
+  transform:rotate(-8deg);
+  z-index:1
+}
+
+.polaroid-olga {
+  right:-4px;
+  top:118px;
+  transform:rotate(8deg);
+  z-index:2
+}
+
+.polaroid:hover {
+  transform:rotate(0) translateY(-6px);
+  z-index:3
+}
+
+.photo-window img.original-olga {
+  width:210%;
+  max-width:none;
+  object-position:50% 45%;
+  transform:translateX(-47%);
+  object-fit:cover
+}
+
+.collage-scribble {
+  position:absolute;
+  right:60px;
+  top:2px;
+  font:600 28px/1 var(--hand);
+  transform:rotate(9deg)
+}
+
+.stamp {
+  position:absolute;
+  bottom:2px;
+  left:30px;
+  border:2px solid var(--ink);
+  border-radius:50%;
+  width:123px;
+  height:123px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transform:rotate(-15deg);
+  z-index:4;
+  background:var(--paper);
+  outline:1px dashed var(--ink);
+  outline-offset:-8px
+}
+
+.stamp span {
+  font-size:8px;
+  letter-spacing:1.4px;
+  line-height:1
+}
+
+.stamp strong {
+  font:600 42px/1.4 var(--display)
+}
+
+.collage-spark {
+  position:absolute;
+  font-size:47px
+}
+
+.spark-one {
+  left:-32px;
+  top:18px;
+  transform:rotate(10deg)
+}
+
+.spark-two {
+  right:-28px;
+  bottom:11px;
+  font-size:63px
+}
+
+.photo-note {
+  position:absolute;
+  right:72px;
+  bottom:0;
+  font:500 21px/1 var(--hand);
+  transform:rotate(3deg)
+}
+
+.scroll-note {
+  position:absolute;
+  bottom:28px;
+  left:0;
+  font-size:9px;
+  letter-spacing:1.7px;
+  display:flex;
+  align-items:center;
+  gap:12px
+}
+
+.scroll-note span {
+  font-size:18px
+}
+
+.ticker {
+  overflow:hidden;
+  background:var(--ink);
+  color:var(--paper);
+  transform:rotate(-1.3deg);
+  padding:15px 0;
+  margin:0 -1px
+}
+
+.ticker-track {
+  display:flex;
+  width:max-content;
+  animation:ticker 45s linear infinite
+}
+
+.ticker-track span {
+  font-size:12px;
+  letter-spacing:2px;
+  white-space:nowrap;
+  padding-right:20px
+}
+
+@keyframes ticker {
+  to {
+    transform:translateX(-50%)
+  }
+}
+
+.hero-copy {
+  animation:rise .8s both
+}
+
+.hero-collage {
+  animation:rise .9s .15s both
+}
+
+@keyframes rise {
+  from {
+    opacity:0;
+    transform:translateY(20px)
+  }
+  to {
+    opacity:1;
+    transform:translateY(0)
+  }
+}
+
+@media(min-width:1440px) {
+  .hero {
+    min-height:790px
+  }
+  .hero-collage {
+    margin-left:35px;
+    height:540px
+  }
+  .polaroid {
+    width:275px
+  }
+  .polaroid-olga {
+    top:111px
+  }
+  .stamp {
+    bottom:-3px
+  }
+  .photo-note {
+    bottom:-5px
+  }
+}
+
+@media(max-width:1100px) {
+  .hero {
+    min-height:640px;
+    padding-top:45px;
+    gap:0
+  }
+  .hero-collage {
+    height:470px;
+    margin-left:15px
+  }
+  .polaroid {
+    width:210px
+  }
+  .polaroid figcaption {
+    font-size:20px
+  }
+  .polaroid-olga {
+    right:0;
+    top:130px
+  }
+  .collage-scribble {
+    right:15px
+  }
+  .stamp {
+    width:104px;
+    height:104px;
+    left:0;
+    bottom:0
+  }
+  .stamp strong {
+    font-size:34px
+  }
+  .photo-note {
+    font-size:17px;
+    right:12px
+  }
+  .title-star {
+    font-size:45px;
+    right:-45px
+  }
+  .hero-description {
+    font-size:14px
+  }
+}
+
+@media(max-width:800px) {
+  .masthead {
+    height:86px
+  }
+  .masthead nav {
+    display:none
+  }
+  .hero {
+    grid-template-columns:1fr;
+    padding-top:45px;
+    padding-bottom:74px;
+    gap:30px
+  }
+  .hero-copy {
+    max-width:530px;
+    margin-inline:auto;
+    width:100%
+  }
+  .hero h1 {
+    font-size:clamp(79px,13vw,108px)
+  }
+  .hero-description {
+    font-size:15px
+  }
+  .hero-collage {
+    width:min(500px,94%);
+    height:530px;
+    margin:0 auto
+  }
+  .polaroid {
+    width:245px
+  }
+  .polaroid-nadezhda {
+    left:1px
+  }
+  .polaroid-olga {
+    right:1px;
+    top:115px
+  }
+  .polaroid figcaption {
+    font-size:23px
+  }
+  .collage-scribble {
+    right:50px;
+    top:-4px
+  }
+  .stamp {
+    left:30px;
+    bottom:1px;
+    width:119px;
+    height:119px
+  }
+  .stamp strong {
+    font-size:40px
+  }
+  .photo-note {
+    right:60px;
+    font-size:21px
+  }
+  .spark-one {
+    left:-20px
+  }
+  .spark-two {
+    right:-15px
+  }
+  .hero-footnote {
+    display:none
+  }
+  .scroll-note {
+    left:0;
+    bottom:22px
+  }
+  .hero-handwritten {
+    margin-bottom:26px
+  }
+  .school-caption {
+    font-size:9px
+  }
+  .header-note {
+    font-size:12px
+  }
+}
+
+@media(max-width:480px) {
+  .masthead {
+    height:80px
+  }
+  .school-number {
+    font-size:33px
+  }
+  .school-caption {
+    font-size:8px;
+    letter-spacing:.7px;
+    padding-left:10px
+  }
+  .school-mark {
+    gap:10px
+  }
+  .header-note {
+    font-size:10px
+  }
+  .tiny-heart {
+    font-size:21px;
+    margin-left:3px
+  }
+  .hero {
+    padding-top:32px;
+    gap:28px
+  }
+  .eyebrow {
+    font-size:9px;
+    letter-spacing:1.25px
+  }
+  .hero h1 {
+    font-size:clamp(65px,20vw,91px);
+    letter-spacing:-2.7px;
+    margin-top:25px
+  }
+  .title-star {
+    font-size:35px;
+    right:-32px
+  }
+  .hero-handwritten {
+    font-size:29px;
+    margin-top:19px
+  }
+  .hero-description {
+    font-size:14px
+  }
+  .primary-button {
+    font-size:12px;
+    padding:14px 20px;
+    margin-top:24px
+  }
+  .hero-collage {
+    height:397px;
+    width:100%;
+    max-width:360px;
+    margin-top:9px
+  }
+  .polaroid {
+    width:185px;
+    padding:9px 9px 6px
+  }
+  .polaroid-nadezhda {
+    left:4px;
+    top:30px
+  }
+  .polaroid-olga {
+    right:1px;
+    top:101px
+  }
+  .polaroid figcaption {
+    font-size:18px;
+    padding-top:8px
+  }
+  .polaroid figcaption span {
+    font-size:21px
+  }
+  .polaroid::before {
+    width:67px;
+    left:calc(50% - 33px);
+    height:24px;
+    top:-10px
+  }
+  .collage-scribble {
+    font-size:23px;
+    right:19px;
+    top:-9px
+  }
+  .stamp {
+    width:91px;
+    height:91px;
+    left:15px;
+    bottom:0
+  }
+  .stamp strong {
+    font-size:31px
+  }
+  .stamp span {
+    font-size:6px;
+    letter-spacing:1px
+  }
+  .photo-note {
+    font-size:16px;
+    right:17px;
+    bottom:-1px
+  }
+  .spark-one {
+    left:-10px;
+    top:-5px;
+    font-size:33px
+  }
+  .spark-two {
+    right:-10px;
+    bottom:-12px;
+    font-size:44px
+  }
+  .scroll-note {
+    font-size:8px;
+    letter-spacing:1.3px
+  }
+  .ticker {
+    padding:12px 0
+  }
+  .ticker-track span {
+    font-size:10px
+  }
+}
+
+@media(max-width:359px) {
+  .school-caption {
+    display:none
+  }
+  .polaroid {
+    width:164px
+  }
+  .hero-collage {
+    height:365px
+  }
+  .polaroid figcaption {
+    font-size:16px
+  }
+  .polaroid-olga {
+    top:90px
+  }
+  .stamp {
+    left:10px;
+    width:86px;
+    height:86px
+  }
+  .photo-note {
+    right:6px;
+    font-size:15px
+  }
+  .hero h1 {
+    font-size:65px
+  }
+  .hero-handwritten {
+    font-size:25px
+  }
+  .title-star {
+    right:-28px
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto
+  }
+  *,*::before,*::after {
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important
+  }
+  .ticker-track {
+    animation:none
+  }
+  .hero-copy,.hero-collage {
+    opacity:1;
+    transform:none
+  }
+}
+
+/* Personal letters and the paper keepsakes. */
+html {
+  overflow-x:clip
+}
+
+.ticker {
+  margin-inline:0
+}
+
+.reveal {
+  opacity:1;
+  transform:none
+}
+
+.motion-ready .reveal:not(.is-visible) {
+  opacity:0;
+  transform:translateY(24px)
+}
+
+.reveal {
+  transition:opacity .7s ease,transform .7s ease
+}
+
+.dedication {
+  text-align:center;
+  padding:106px 0 108px
+}
+
+.dedication-star {
+  display:block;
+  font-size:31px;
+  line-height:1;
+  margin-bottom:23px
+}
+
+.dedication>p {
+  font:500 clamp(31px,3.6vw,48px)/1.2 var(--display);
+  letter-spacing:-.5px
+}
+
+.dedication p em {
+  font-weight:600
+}
+
+.dedication-caption {
+  display:block;
+  margin-top:22px;
+  font-size:9px;
+  letter-spacing:1.6px
+}
+
+.section-heading {
+  position:relative;
+  margin-bottom:48px
+}
+
+h2 {
+  font:600 clamp(45px,5vw,69px)/1.02 var(--display);
+  letter-spacing:-1.5px
+}
+
+h2 em {
+  font-weight:600
+}
+
+.section-heading h2 {
+  margin-top:19px
+}
+
+.section-aside {
+  position:absolute;
+  right:6%;
+  bottom:10px;
+  font:500 25px/1.15 var(--hand);
+  transform:rotate(4deg)
+}
+
+.teachers {
+  padding-bottom:115px
+}
+
+.teacher {
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.25fr);
+  background:var(--paper-light);
+  border:1px solid var(--line);
+  padding:34px;
+  gap:50px;
+  align-items:center;
+  margin-bottom:38px;
+  position:relative
+}
+
+.teacher::after {
+  content:"";
+  position:absolute;
+  right:13px;
+  top:13px;
+  bottom:13px;
+  width:4px;
+  background:radial-gradient(circle,var(--ink) .65px,transparent 1px) 0 0/4px 9px;
+  opacity:.2
+}
+
+.teacher-portrait {
+  position:relative;
+  padding:11px 11px 48px;
+  background:var(--paper);
+  transform:rotate(-2deg);
+  box-shadow:0 3px 10px #60233b10
+}
+
+.teacher-portrait img {
+  aspect-ratio:3/4;
+  object-fit:cover
+}
+
+.portrait-caption {
+  position:absolute;
+  bottom:13px;
+  left:0;
+  width:100%;
+  text-align:center;
+  font:500 25px/1 var(--hand);
+  padding-inline:8px
+}
+
+.teacher-letter {
+  padding:8px 22px 8px 0;
+  min-width:0
+}
+
+.letter-tag {
+  font-size:9px;
+  letter-spacing:1.3px;
+  line-height:1.6
+}
+
+.teacher h3 {
+  font:600 clamp(46px,4.6vw,63px)/.96 var(--display);
+  letter-spacing:-1.5px;
+  margin-top:17px
+}
+
+.teacher h3 em {
+  font-weight:600
+}
+
+.teacher-role {
+  font-size:11px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  margin-top:17px
+}
+
+.letter-body {
+  margin-top:23px;
+  font-size:14px;
+  line-height:1.85
+}
+
+.letter-body p+p {
+  margin-top:13px
+}
+
+.letter-signature {
+  font:600 27px/1.2 var(--hand);
+  margin-top:24px
+}
+
+.letter-signature span {
+  display:inline-block;
+  margin-left:10px;
+  transform:rotate(10deg)
+}
+
+.teacher-olga {
+  grid-template-columns:minmax(0,1.25fr) minmax(0,.88fr);
+  background:#eee9f3
+}
+
+.teacher-olga .teacher-portrait {
+  grid-column:2;
+  grid-row:1;
+  transform:rotate(2deg);
+  background:#fffbef
+}
+
+.teacher-olga .teacher-letter {
+  grid-column:1;
+  grid-row:1;
+  padding:8px 0 8px 18px
+}
+
+.new-role {
+  display:inline-block;
+  font:600 20px/1.2 var(--hand);
+  margin-top:7px;
+  color:var(--ink);
+  transform:rotate(-2deg)
+}
+
+.tech-button {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  border:1px dashed #60233b55;
+  background:transparent;
+  padding:11px 13px;
+  font-size:11px;
+  margin-top:20px;
+  border-radius:3px;
+  text-align:left;
+  max-width:100%;
+  transition:background .2s
+}
+
+.tech-button:hover {
+  background:#ffffff70
+}
+
+.tech-button kbd {
+  font:11px var(--body);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:23px;
+  min-height:23px;
+  padding:2px 5px;
+  background:var(--paper-light);
+  border:1px solid #60233b33;
+  box-shadow:0 2px 0 #60233b22;
+  border-radius:3px
+}
+
+.tech-label {
+  margin-left:4px
+}
+
+.tech-button>span:last-child {
+  margin-left:5px;
+  font-size:20px
+}
+
+.tech-note {
+  margin-top:11px;
+  padding:11px 13px;
+  background:var(--ink);
+  color:var(--paper);
+  font-size:11px;
+  line-height:1.8;
+  border-radius:3px
+}
+
+.tech-note strong {
+  font-weight:400;
+  color:var(--yellow)
+}
+
+.tech-prompt {
+  color:var(--yellow)
+}
+
+.wishes-section {
+  background:var(--yellow);
+  position:relative
+}
+
+.wishes-section::before,.wishes-section::after {
+  content:"";
+  position:absolute;
+  left:0;
+  width:100%;
+  height:8px;
+  background:radial-gradient(circle,var(--paper) 4px,transparent 4.6px) 0 0/17px 8px
+}
+
+.wishes-section::before {
+  top:-4px
+}
+
+.wishes-section::after {
+  bottom:-4px
+}
+
+.wishes-inner {
+  padding:84px 60px 75px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center
+}
+
+.wishes-copy h2 {
+  font-size:clamp(50px,5.5vw,76px);
+  margin:22px 0 22px
+}
+
+.wishes-copy>p:not(.eyebrow) {
+  font-size:14px;
+  line-height:1.75
+}
+
+.wishes-scribble {
+  font:500 25px/1.2 var(--hand);
+  display:block;
+  margin-top:34px;
+  transform:rotate(-5deg)
+}
+
+.wish-machine {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px
+}
+
+.wish-stack {
+  position:relative;
+  isolation:isolate;
+  width:100%;
+  max-width:420px;
+  aspect-ratio:1.2
+}
+
+.wish-sheet {
+  position:absolute;
+  inset:0;
+  box-shadow:0 5px 20px #60233b14;
+  transition:transform .35s
+}
+
+.sheet-back {
+  background:var(--ink);
+  transform:rotate(6deg)
+}
+
+.sheet-middle {
+  background:var(--lilac);
+  transform:rotate(-6deg)
+}
+
+.sheet-front {
+  background:var(--paper-light);
+  transform:rotate(2deg);
+  padding:34px 32px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center
+}
+
+.wish-heart {
+  font:44px/1 var(--hand);
+  margin-bottom:14px
+}
+
+.wish-text {
+  font:600 31px/1.15 var(--display);
+  max-width:320px;
+  flex:1;
+  display:grid;
+  place-items:center
+}
+
+.wish-card-footer {
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+  font-size:8px;
+  letter-spacing:1.6px;
+  margin-top:27px
+}
+
+.wish-button {
+  margin-top:22px
+}
+
+.timetable {
+  padding-top:110px;
+  padding-bottom:110px;
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:60px;
+  align-items:start
+}
+
+.timetable-heading h2 {
+  margin:22px 0 25px
+}
+
+.timetable-note {
+  font:500 24px/1.1 var(--hand);
+  transform:rotate(-4deg);
+  margin-top:26px
+}
+
+.schedule {
+  margin:0
+}
+
+.schedule>div {
+  position:relative;
+  padding:23px 48px 23px 0;
+  border-top:1px solid var(--line)
+}
+
+.schedule>div:last-child {
+  border-bottom:1px solid var(--line)
+}
+
+.schedule dt span {
+  font-size:9px;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  display:block;
+  margin-bottom:6px
+}
+
+.schedule dt strong {
+  font:600 31px/1.2 var(--display)
+}
+
+.schedule dd {
+  margin:8px 0 0;
+  font-size:12px;
+  color:var(--ink-soft);
+  max-width:370px;
+  line-height:1.8
+}
+
+.schedule-icon {
+  position:absolute;
+  right:6px;
+  top:33px;
+  font:32px/1 var(--hand)
+}
+
+.finale {
+  position:relative;
+  background:var(--ink);
+  color:var(--paper);
+  overflow:hidden
+}
+
+.finale-inner {
+  padding:85px 0 77px;
+  text-align:center;
+  position:relative;
+  z-index:1
+}
+
+.finale .eyebrow {
+  justify-content:center;
+  font-size:9px;
+  letter-spacing:2px
+}
+
+.finale h2 {
+  font:600 clamp(80px,9vw,130px)/.84 var(--display);
+  letter-spacing:-3px;
+  margin:37px auto 30px;
+  width:max-content;
+  max-width:100%;
+  position:relative
+}
+
+.finale h2>span {
+  font:70px var(--hand);
+  position:absolute;
+  top:10px;
+  right:-75px;
+  transform:rotate(12deg);
+  color:var(--yellow)
+}
+
+.finale-description {
+  font-size:13px;
+  line-height:1.85;
+  opacity:.85
+}
+
+.envelope-button {
+  border:1px solid #faf4df66;
+  background:transparent;
+  color:var(--paper);
+  padding:11px 21px;
+  display:inline-flex;
+  gap:12px;
+  align-items:center;
+  font-size:12px;
+  margin-top:28px;
+  border-radius:3px;
+  transition:color .2s,background .2s,transform .2s
+}
+
+.envelope-button:hover {
+  background:var(--paper);
+  color:var(--ink);
+  transform:rotate(-1deg)
+}
+
+.envelope-icon {
+  font-size:23px;
+  line-height:1
+}
+
+.finale-signature {
+  font:500 36px/1.1 var(--hand);
+  margin-top:33px
+}
+
+.finale-signature>span {
+  display:block;
+  font:400 9px/1.6 var(--body);
+  letter-spacing:1.5px;
+  margin-top:14px
+}
+
+.finale-ornament {
+  position:absolute;
+  left:-80px;
+  bottom:-160px;
+  font:600 480px/1 var(--display);
+  opacity:.045;
+  transform:rotate(15deg)
+}
+
+.finale button:focus-visible {
+  outline-color:var(--paper)
+}
+
+.footer {
+  font-size:10px;
+  padding:27px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px
+}
+
+.footer a {
+  border-bottom:1px solid var(--line)
+}
+
+.letter-dialog {
+  background:var(--paper-light);
+  color:var(--ink);
+  border:1px solid var(--line);
+  width:min(540px,calc(100% - 32px));
+  max-height:calc(100dvh - 40px);
+  padding:42px;
+  box-shadow:0 24px 100px #210c2a44;
+  border-radius:4px;
+  overflow-y:auto
+}
+
+.letter-dialog::backdrop {
+  background:#24111cd1;
+  backdrop-filter:blur(5px)
+}
+
+.dialog-close {
+  position:absolute;
+  top:7px;
+  right:10px;
+  font-size:30px;
+  width:42px;
+  height:42px;
+  border:0;
+  background:transparent;
+  line-height:1
+}
+
+.dialog-heart {
+  display:block;
+  font:48px/1 var(--hand);
+  margin-bottom:20px
+}
+
+.letter-dialog .eyebrow {
+  font-size:8px;
+  letter-spacing:1.8px
+}
+
+.letter-dialog h2 {
+  font-size:55px;
+  margin:16px 0 24px
+}
+
+.letter-dialog #dialog-message {
+  font-size:14px;
+  line-height:1.8
+}
+
+.letter-dialog #dialog-message p+p {
+  margin-top:13px
+}
+
+.dialog-signature {
+  font:600 31px/1.1 var(--hand);
+  margin-top:24px
+}
+
+.celebrate-button {
+  background:var(--ink);
+  color:var(--paper);
+  border:1px solid var(--ink);
+  padding:12px 16px;
+  font-size:11px;
+  border-radius:3px;
+  margin-top:27px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  width:100%
+}
+
+.celebrate-button:hover {
+  background:#7b314b
+}
+
+.celebrate-button span {
+  font-size:20px;
+  line-height:1
+}
+
+.celebration-message {
+  font:500 22px/1.15 var(--hand);
+  margin-top:13px;
+  min-height:25px;
+  text-align:center
+}
+
+.confetti {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:100;
+  overflow:hidden
+}
+
+.confetti-piece {
+  position:absolute;
+  top:-24px;
+  width:var(--size);
+  height:calc(var(--size)*1.5);
+  background:var(--color);
+  left:var(--left);
+  border-radius:1px;
+  animation:confetti-fall var(--duration) var(--delay) cubic-bezier(.1,.4,.65,1) forwards
+}
+
+@keyframes confetti-fall {
+  from {
+    transform:translateY(-10vh) rotate(0);
+    opacity:1
+  }
+  to {
+    transform:translateY(115vh) translateX(var(--drift)) rotate(var(--rotation));
+    opacity:0
+  }
+}
+
+@media(max-width:1100px) {
+  .teacher {
+    gap:30px;
+    padding:27px
+  }
+  .teacher-letter {
+    padding-right:9px
+  }
+  .letter-body {
+    font-size:13px
+  }
+  .teacher h3 {
+    font-size:55px
+  }
+  .wishes-inner {
+    padding-inline:30px;
+    gap:45px
+  }
+  .wish-text {
+    font-size:29px
+  }
+  .sheet-front {
+    padding:28px
+  }
+  .timetable {
+    gap:35px
+  }
+  .portrait-caption {
+    font-size:22px
+  }
+}
+
+@media(max-width:800px) {
+  .dedication {
+    padding:76px 0 78px
+  }
+  .teachers {
+    padding-bottom:68px
+  }
+  .section-heading {
+    margin-bottom:32px
+  }
+  .section-aside {
+    right:0;
+    font-size:21px;
+    bottom:8px
+  }
+  .teacher {
+    padding:25px;
+    gap:30px;
+    grid-template-columns:1fr 1.2fr;
+    align-items:start
+  }
+  .teacher-portrait {
+    margin-top:18px;
+    padding-bottom:44px
+  }
+  .portrait-caption {
+    font-size:19px
+  }
+  .teacher h3 {
+    font-size:45px
+  }
+  .letter-tag {
+    font-size:8px;
+    letter-spacing:.8px
+  }
+  .teacher-role {
+    font-size:10px
+  }
+  .letter-body {
+    font-size:12px;
+    line-height:1.85;
+    margin-top:19px
+  }
+  .letter-signature {
+    font-size:24px
+  }
+  .teacher-olga {
+    grid-template-columns:1.2fr 1fr
+  }
+  .teacher-olga .teacher-letter {
+    padding-left:0
+  }
+  .teacher-olga .teacher-portrait {
+    margin-top:30px
+  }
+  .tech-button {
+    gap:5px;
+    padding:9px;
+    font-size:9px;
+    flex-wrap:wrap
+  }
+  .tech-label {
+    margin-left:3px
+  }
+  .new-role {
+    font-size:17px
+  }
+  .wishes-inner {
+    padding:65px 12px;
+    gap:38px
+  }
+  .wishes-copy .eyebrow {
+    font-size:8px;
+    letter-spacing:.9px
+  }
+  .wishes-copy h2 {
+    font-size:55px
+  }
+  .wishes-scribble {
+    font-size:22px
+  }
+  .wish-text {
+    font-size:24px
+  }
+  .sheet-front {
+    padding:21px
+  }
+  .wish-heart {
+    font-size:37px;
+    margin-bottom:8px
+  }
+  .wish-card-footer {
+    margin-top:15px;
+    font-size:7px;
+    letter-spacing:1px
+  }
+  .wish-button {
+    font-size:10px;
+    padding:12px 15px;
+    gap:12px
+  }
+  .timetable {
+    padding-block:76px;
+    grid-template-columns:1fr 1.25fr;
+    gap:28px
+  }
+  .timetable h2 {
+    font-size:54px
+  }
+  .schedule dt strong {
+    font-size:26px
+  }
+  .schedule dd {
+    font-size:11px
+  }
+  .timetable .eyebrow {
+    font-size:8px;
+    letter-spacing:1px
+  }
+  .finale-inner {
+    padding-block:68px
+  }
+  .finale h2 {
+    font-size:100px
+  }
+  .finale h2>span {
+    font-size:55px;
+    right:-57px
+  }
+  .footer {
+    font-size:9px
+  }
+}
+
+@media(max-width:600px) {
+  .dedication-caption {
+    font-size:8px;
+    letter-spacing:1px
+  }
+  .section-heading h2 {
+    font-size:48px
+  }
+  .section-aside {
+    position:static;
+    margin-top:20px;
+    font-size:21px;
+    transform:rotate(-3deg);
+    width:max-content
+  }
+  .section-aside br {
+    display:none
+  }
+  .teacher,.teacher-olga {
+    display:flex;
+    flex-direction:column;
+    padding:22px;
+    gap:27px;
+    margin-bottom:27px
+  }
+  .teacher::after {
+    right:9px;
+    top:9px;
+    bottom:9px
+  }
+  .teacher-portrait,.teacher-olga .teacher-portrait {
+    width:calc(100% - 26px);
+    max-width:295px;
+    align-self:center;
+    margin:7px 0 0;
+    padding:10px 10px 47px
+  }
+  .portrait-caption {
+    font-size:22px;
+    bottom:13px
+  }
+  .teacher-letter,.teacher-olga .teacher-letter {
+    padding:0 2px;
+    min-width:0
+  }
+  .letter-tag {
+    font-size:8px;
+    letter-spacing:1px
+  }
+  .teacher h3 {
+    font-size:54px;
+    margin-top:16px
+  }
+  .teacher-role {
+    font-size:11px
+  }
+  .letter-body {
+    font-size:14px;
+    line-height:1.8
+  }
+  .letter-signature {
+    font-size:27px
+  }
+  .tech-button {
+    font-size:10px;
+    gap:5px;
+    padding:10px
+  }
+  .new-role {
+    font-size:20px
+  }
+  .wishes-inner {
+    grid-template-columns:1fr;
+    gap:44px;
+    padding:60px 14px
+  }
+  .wishes-copy h2 {
+    font-size:62px
+  }
+  .wishes-copy .eyebrow {
+    font-size:9px;
+    letter-spacing:1.2px
+  }
+  .wishes-copy>p:not(.eyebrow) {
+    font-size:14px
+  }
+  .wishes-scribble {
+    margin-top:22px;
+    font-size:25px
+  }
+  .wish-stack {
+    max-width:340px;
+    aspect-ratio:1.14
+  }
+  .wish-text {
+    font-size:30px
+  }
+  .sheet-front {
+    padding:28px
+  }
+  .wish-card-footer {
+    font-size:8px;
+    margin-top:24px
+  }
+  .wish-heart {
+    font-size:42px;
+    margin-bottom:12px
+  }
+  .wish-button {
+    font-size:12px;
+    padding:14px 18px;
+    margin-top:25px
+  }
+  .timetable {
+    grid-template-columns:1fr;
+    gap:32px;
+    padding-block:65px
+  }
+  .timetable-heading {
+    position:relative
+  }
+  .timetable h2 {
+    font-size:58px
+  }
+  .timetable-note {
+    font-size:21px;
+    position:absolute;
+    right:0;
+    bottom:8px
+  }
+  .timetable .eyebrow {
+    font-size:8px;
+    letter-spacing:.8px
+  }
+  .schedule>div {
+    padding-block:21px
+  }
+  .schedule dt strong {
+    font-size:28px
+  }
+  .schedule dd {
+    font-size:12px
+  }
+  .schedule-icon {
+    font-size:31px;
+    right:2px
+  }
+  .finale-inner {
+    padding:65px 0 60px
+  }
+  .finale h2 {
+    font-size:90px;
+    letter-spacing:-2px
+  }
+  .finale h2>span {
+    font-size:39px;
+    top:-16px;
+    right:-25px
+  }
+  .finale-description {
+    font-size:12px
+  }
+  .finale .eyebrow {
+    font-size:8px;
+    letter-spacing:1.5px
+  }
+  .finale-signature {
+    font-size:34px
+  }
+  .footer {
+    flex-wrap:wrap;
+    justify-content:space-between;
+    padding-block:23px;
+    font-size:9px
+  }
+  .footer>span:last-child {
+    display:none
+  }
+  .letter-dialog {
+    padding:31px 26px
+  }
+  .letter-dialog h2 {
+    font-size:49px
+  }
+  .letter-dialog #dialog-message {
+    font-size:14px
+  }
+  .letter-dialog .eyebrow {
+    font-size:8px;
+    letter-spacing:1.2px
+  }
+  .celebrate-button {
+    font-size:10px;
+    padding:12px 10px;
+    gap:8px
+  }
+}
+
+@media(max-width:359px) {
+  .dedication>p {
+    font-size:29px
+  }
+  .dedication-caption {
+    font-size:7px;
+    letter-spacing:.7px
+  }
+  .section-heading h2 {
+    font-size:43px
+  }
+  .teacher,.teacher-olga {
+    padding:19px
+  }
+  .teacher h3 {
+    font-size:48px
+  }
+  .letter-body {
+    font-size:13px
+  }
+  .portrait-caption {
+    font-size:20px
+  }
+  .wishes-inner {
+    padding-inline:7px
+  }
+  .wish-text {
+    font-size:27px
+  }
+  .sheet-front {
+    padding:24px
+  }
+  .timetable-note {
+    position:static;
+    margin-top:16px;
+    font-size:22px
+  }
+  .schedule dt strong {
+    font-size:25px
+  }
+  .finale h2 {
+    font-size:78px
+  }
+  .finale h2>span {
+    right:-18px;
+    top:-10px;
+    font-size:31px
+  }
+  .finale-description {
+    font-size:11px
+  }
+  .letter-dialog h2 {
+    font-size:44px
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .motion-ready .reveal:not(.is-visible) {
+    opacity:1;
+    transform:none
+  }
+  .confetti-piece {
+    display:none
+  }
+}
+
+/* Keep reading comfortable on narrow screens and enlarged text. */
+.hero-description,.letter-body,.wishes-copy>p:not(.eyebrow),.finale-description {
+  font-size:16px
+}
+
+.schedule dd {
+  font-size:14px
+}
+
+.letter-dialog #dialog-message {
+  font-size:16px
+}
+
+.teacher {
+  align-items:center
+}
+
+.letter-body {
+  line-height:1.75
+}
+
+.portrait-caption {
+  white-space:normal
+}
+
+.wish-text {
+  overflow-wrap:break-word
+}
+
+@media(max-width:1100px) {
+  .letter-body {
+    font-size:15px
+  }
+  .teacher-role {
+    font-size:12px
+  }
+}
+
+@media(max-width:800px) and (min-width:601px) {
+  .teacher,.teacher-olga {
+    grid-template-columns:minmax(0,.75fr) minmax(0,1.3fr);
+    gap:24px
+  }
+  .teacher-olga .teacher-portrait {
+    grid-column:1
+  }
+  .teacher-olga .teacher-letter {
+    grid-column:2
+  }
+  .teacher-portrait {
+    margin-top:0
+  }
+  .letter-body {
+    font-size:15px
+  }
+  .teacher h3 {
+    font-size:48px
+  }
+  .teacher-role {
+    font-size:12px
+  }
+  .letter-tag {
+    font-size:9px
+  }
+  .portrait-caption {
+    font-size:19px
+  }
+  .tech-label {
+    flex-basis:auto
+  }
+}
+
+@media(max-width:600px) {
+  .hero-description,.letter-body,.wishes-copy>p:not(.eyebrow),.finale-description {
+    font-size:16px
+  }
+  .teacher-role {
+    font-size:12px
+  }
+  .letter-body {
+    line-height:1.75
+  }
+  .letter-dialog #dialog-message {
+    font-size:15px
+  }
+  .schedule dd {
+    font-size:14px
+  }
+  .hero-description br {
+    display:none
+  }
+}
+
+@media(max-width:359px) {
+  .finale-description {
+    font-size:14px
+  }
+  .finale-description br {
+    display:none
+  }
+}
+
+@media(max-width:600px) {
+  .section-aside {
+    width:auto;
+    max-width:100%;
+    transform:none
+  }
+}
+
+@media(max-width:359px) {
+  .wish-stack {
+    aspect-ratio:auto;
+    height:280px
+  }
+}
